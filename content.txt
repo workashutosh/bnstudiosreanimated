@@ -1,0 +1,191 @@
+
+
+1. Architectural Visualisation (Arch Viz)
+We bring your building ideas to life with realistic 3D images and videos that show exactly how the space will look once it’s built. Every room, material, shadow, and light is created carefully so your clients can clearly imagine the final result. These visuals make it easier to explain your design, avoid confusion, and help everyone make decisions faster. When people can see the space before it exists, the entire project feels more real and trustworthy.
+
+2. Game Development
+We build complete game worlds—from characters and environments to gameplay and visual effects. Our focus is on making games that look beautiful, run smoothly, and feel fun and engaging to play. Whether it’s a story-driven game, a fast-paced shooter, or a mobile experience, we use modern tools like Unreal Engine to deliver high-quality results. Everything is designed to keep players interested and coming back for more.
+
+3. VR Games & Immersive Experiences
+We create virtual reality experiences that feel natural and believable the moment you put on the headset. Players can move around, interact with objects, and explore worlds that react to them in real time. We design the environments, controls, and visuals in a way that feels comfortable but exciting. Whether it’s for entertainment, training, or brand experiences, we focus on making VR smooth, responsive, and truly immersive.
+
+4. Mobile & Web App Development
+We design and build apps and websites that are fast, modern, and easy for anyone to use. Our goal is to make digital products that look clean, avoid confusion, and make every action feel simple. From the layout to the buttons to the overall flow, everything is planned with the user in mind. We use the latest technologies to make sure your product works well on all devices and can grow as your business grows.
+
+5. 3D Art & Production
+We produce high-quality 3D models and visuals for games, films, animation, and product showcases. Our team focuses on creating assets that look detailed, realistic, and ready for use in any project. This includes characters, environments, props, and anything else you need. Each asset is built with clean modelling, strong texturing, and proper optimization so it looks great while performing well in real-time engines or offline renders.
+ 
+Service Pages – Canvas-Ready Layouts (Expanded Content)
+
+🟩 GAME DEVELOPMENT PAGE
+Hero Section
+Headline: Game Development with High-Quality Visuals & Smooth Gameplay Subtext: We build games that look stunning and feel great to play. From PC to mobile and VR, every project is shaped with stable systems, clear gameplay design, and visuals that draw players in.
+
+Section: Our Game Development Capabilities
+We cover complete game production from idea to release. Our team handles:
+•	PC, Mobile & VR Games
+•	FPS/TPS Controllers with polished movement
+•	Multiplayer Systems (lobbies, matchmaking, replication)
+•	RPG Progression, Skill Trees & Inventory Systems
+•	Prototyping, Level Design & World Building
+•	Character Setup using CC4 / Metahuman
+•	Post-launch updates, optimization & live support
+Our approach mixes creativity with strong engineering so each game feels fluid, responsive, and fun.
+
+Section: Built for Player Experience
+We design gameplay around real players—not theory. Controls feel natural, animations blend smoothly, and the game world reacts just right. Every mechanic is tested, optimized, and tuned so players instantly understand how to move, aim, explore, and interact.
+We focus on:
+•	Clean, readable gameplay
+•	Smooth camera and movement
+•	Balanced systems
+•	Low-latency multiplayer
+•	Stable performance across devices
+
+Section: Our Production Pipeline
+•	Unreal Engine 5.4
+•	Unity HDRP/URP
+•	Lumen Lighting & Nanite Assets
+•	Chaos Physics
+•	CC4 Character Pipeline
+•	Animation Retargeting
+•	Profiling & Performance Optimization
+
+Section: Gameplay & Worlds We’ve Created
+A curated gallery of shooters, stylized worlds, cinematic scenes, and interactive levels we’ve developed across different genres.
+
+Call to Action
+Start Your Game Project
+
+
+🟥 ARCHVIZ PAGE
+Hero Section
+Headline: Realistic Architecture Visuals in Real-Time Subtext: We bring real-estate ideas to life with detailed interior and exterior renders, walkthrough videos, and VR experiences powered by real-time engines.
+
+Section: What We Deliver
+We offer complete visualization solutions:
+•	Exterior Rendering
+•	Interior Rendering
+•	4K/8K Walkthrough Animations
+•	VR Property Tours
+•	Township & Masterplan Visualization
+•	Lighting & Material Planning
+•	Product & Furniture Rendering
+Each scene is crafted to highlight space, design intent, and atmosphere.
+
+Section: More Than Renders—We Create Atmospheres
+Our visuals do more than show a building—they help people feel the space. We add:
+•	Warm, natural lighting
+•	High-quality materials
+•	Realistic props & décor
+•	Smooth camera paths
+•	Accurate proportions
+Clients use our visuals to pitch projects faster, close deals confidently, and give buyers a clear idea of the final environment.
+
+Section: Tools We Use
+Unreal Engine 5 • Lumen • Twinmotion • Blender • Megascans • CAD-to-FBX Pipeline
+
+Section: Our Architectural Visuals
+A gallery showcasing interiors, exteriors, balconies, lobbies, show flats, villas, and commercial spaces.
+
+Call to Action
+Let’s Build Your Real-Estate Visuals
+
+
+🟪 VR DEVELOPMENT PAGE
+Hero Section
+Headline: Immersive VR Built for Natural Interaction Subtext: We design VR experiences that are comfortable, intuitive, and realistic—built for Quest, SteamVR, and Vision Pro.
+
+Section: VR Solutions
+We develop VR systems for:
+•	VR Games
+•	Training Simulators
+•	VR Walkthroughs
+•	Educational VR Apps
+•	Interactive Product Demos
+Whether it's entertainment or industry, we design interactions that feel effortless.
+
+Section: Human-Centered Interaction
+Every interaction is built to behave the way users expect. This includes:
+•	Natural hand physics
+•	Object grabbing, throwing & rotation
+•	Spatial UI (menus in 3D space)
+•	Haptics & vibration feedback
+•	Teleport + smooth locomotion
+•	Full-body IK
+•	Multiplayer VR interactions
+These systems make VR feel intuitive even to first-time users.
+
+Section: Why Clients Choose Us
+We focus on:
+•	Comfort-first design
+•	Stable frame rates
+•	Clean, readable UI
+•	Realistic physics
+•	Polished visuals
+This ensures the final experience feels smooth, safe, and highly engaging.
+
+Section: Tech Stack
+Unreal Engine VR Framework • Unity XR Toolkit • Meta SDK • SteamVR • OpenXR
+
+Call to Action
+Start Your VR Experience
+
+
+🟫 APP DEVELOPMENT PAGE
+Hero Section
+Headline: Fast, Clean & Reliable Mobile Apps Subtext: We build apps that load fast, look modern, and run smoothly—ideal for businesses, events, education, gaming and more.
+
+Section: What We Build
+Our app services include:
+•	Business Apps
+•	Utility & Productivity Tools
+•	Companion Apps for Games
+•	Event & Ticketing Apps
+•	Learning/Training Apps
+Each app is designed to be easy to use and visually clear.
+
+Section: What Clients Get
+Our apps come with:
+•	Smooth UI/UX
+•	Organized layouts
+•	Strong backend architecture
+•	Secure, reliable data management
+•	Features that scale as your user base grows
+Your users get a simple, frustration-free experience.
+
+Section: Tech Stack
+React Native • Flutter • Firebase • Node.js • AWS
+
+Call to Action
+Build Your App With Us
+
+
+🟨 WEB DEVELOPMENT PAGE
+Hero Section
+Headline: Modern Websites That Look Great and Convert Better Subtext: We create fast, clean, and highly polished websites that make your brand stand out and improve user experience.
+
+Section: Web Solutions
+We build:
+•	Company Websites
+•	Landing Pages
+•	Portfolio Websites
+•	Ecommerce Stores
+•	Web Applications
+•	CMS Blogs & News Portals
+Each website is created with a strong design and smooth performance in mind.
+
+Section: Built for Speed, Design & Visibility
+We combine:
+•	Strong color psychology
+•	Clean modern layouts
+•	Readable typography
+•	Smooth animations
+•	Fast-loading pages
+This creates a website that feels premium, works beautifully on all screens, and keeps visitors engaged.
+
+Section: Tech Stack
+React.js • Next.js • WordPress (Headless) • TailwindCSS • GSAP • Three.js (3D elements)
+
+Call to Action
+Let’s Build Your Website
+

@@ -17,7 +17,7 @@ function App() {
       <div className="bg-black min-h-screen">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<GameDev />} />
           <Route path="/game-dev" element={<GameDev />} />
           <Route path="/arch-viz" element={<ArchViz />} />
           <Route path="/vr" element={<VR />} />

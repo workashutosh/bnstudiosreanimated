@@ -26,9 +26,12 @@ const ArchViz = () => {
             {/* HERO SECTION */}
             <section className="relative h-screen flex flex-col justify-end pb-20 px-6 md:px-20 overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                    <img
-                        src={assets.hero}
-                        alt="Modern Architecture"
+                    <video
+                        src="https://res.cloudinary.com/df7s2xmz1/video/upload/v1770225873/Timeline_1_xahnnr.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-[#2F3E30]/20 mix-blend-multiply" />
@@ -43,11 +46,7 @@ const ArchViz = () => {
                         Reshaping <br /> <span className="text-[#B28B84]">Perspective</span>
                     </h1>
                     <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-                        <Link to="/contact">
-                            <button className="bg-[#2F3E30] text-[#E8EDDF] px-10 py-4 font-bebas text-2xl hover:bg-[#B28B84] hover:text-2F3E30 transition-colors duration-300">
-                                View Projects
-                            </button>
-                        </Link>
+                       
                         <p className="max-w-md text-[#4A5D4B] font-oswald text-sm leading-relaxed border-l-2 border-[#B28B84] pl-4">
                             We bring real-estate ideas to life with detailed interior and exterior renders, walkthrough videos, and VR experiences powered by real-time engines.
                         </p>
@@ -107,21 +106,32 @@ const ArchViz = () => {
 
                 <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8">
                     {[
-                        { title: "Exterior Rendering", img: assets.featured[1], text: "Photorealistic facades and environments that sell the vision." },
+                        { title: "Exterior Rendering", img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770222818/006e3437-097b-4b4b-9875-c19381c01257.png', text: "Photorealistic facades and environments that sell the vision." },
                         { title: "Interior Rendering", img: assets.featured[2], text: "Detailed spaces with mood, lighting, and realistic decor." },
-                        { title: "4K/8K Walkthroughs", img: assets.gallery[0], text: "Cinematic video tours that showcase property flow." },
-                        { title: "VR Property Tours", img: assets.gallery[1], text: "Immersive interactive walkthroughs for pre-sales." },
-                        { title: "Township Visualization", img: assets.gallery[2], text: "Large-scale masterplans and aerial views." },
+                        { title: "4K/8K Walkthroughs", img: 'https://res.cloudinary.com/df7s2xmz1/video/upload/v1770223339/Archviz_2_2_1_r86kzn.mp4', isVideo: true, text: "Cinematic video tours that showcase property flow." },
+                        { title: "VR Property Tours", img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770222796/ed72e37d-c964-4050-9d88-3d192c16ebbb.png', text: "Immersive interactive walkthroughs for pre-sales." },
+                        { title: "Township Visualization", img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770222831/e45eae69-265e-482f-9ce7-5085e83cca3f.png', text: "Large-scale masterplans and aerial views." },
                         { title: "Lighting & Materials", img: assets.gallery[3], text: "Material selection and lighting studies." }
                     ].map((item, idx) => (
                         <div key={idx} className="group cursor-pointer">
                             <div className="overflow-hidden mb-6 relative h-[300px]">
                                 <div className="absolute inset-0 bg-[#2F3E30]/20 group-hover:bg-transparent transition-colors z-10" />
-                                <img
-                                    src={item.img}
-                                    alt={item.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
+                                {item.isVideo ? (
+                                    <video
+                                        src={item.img}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                ) : (
+                                    <img
+                                        src={item.img}
+                                        alt={item.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                )}
                             </div>
                             <h3 className="text-3xl font-bebas text-[#2F3E30] group-hover:text-[#B28B84] transition-colors mb-2">0{idx + 1} . {item.title}</h3>
                             <p className="font-oswald text-[#4A5D4B] text-sm max-w-xs">{item.text}</p>

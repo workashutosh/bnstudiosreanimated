@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { submitToContact } from '../utils/submitForm';
 
 const VR = () => {
+    const [vrForm, setVRForm] = useState({ name: '', email: '', message: '' });
+    const [vrSubmitting, setVRSubmitting] = useState(false);
+    const [contactSuccess, setContactSuccess] = useState(false);
+
+    const handleVRContactSubmit = async (e) => {
+        e.preventDefault();
+        setVRSubmitting(true);
+        const result = await submitToContact(vrForm, 'VR page - Contact form - Blood Nexus');
+        if (result.ok) {
+            setContactSuccess(true);
+            setVRForm({ name: '', email: '', message: '' });
+        }
+        setVRSubmitting(false);
+    };
+
     // Assets from request
     const assets = {
         hero: "https://res.cloudinary.com/df7s2xmz1/image/upload/v1768747171/VR-bg_uqw3k8.png",
@@ -55,9 +71,9 @@ const VR = () => {
                 <div className="container mx-auto px-6">
                     <div className="bg-[#0033CC] p-8 md:p-12 relative overflow-hidden group">
                         <img
-                            src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1768747237/70948d82-4ed0-40ec-be92-7c22e426f634.png"
+                            src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770223492/cbaec4f1-d8a7-402f-84cc-424f62491a24.png"
                             alt="VR Solutions"
-                            className="w-full h-64 md:h-[400px] object-cover mb-8"
+                            className="w-full h-64 md:h-[570px] object-cover mb-8"
                         />
                         <div className="flex flex-col md:flex-row justify-between items-end gap-8">
                             <h2 className="text-4xl md:text-6xl font-bebas text-white leading-none max-w-md">
@@ -182,11 +198,20 @@ const VR = () => {
                     <h2 className="text-5xl md:text-8xl font-bebas text-white mb-8 md:mb-12 text-center md:text-left">CONTACT US</h2>
 
                     <div className="bg-[#F1F5F9] p-8 rounded-sm shadow-2xl">
-                        <form className="space-y-6">
+                        {contactSuccess ? (
+                            <p className="text-[#0F172A] font-oswald text-lg text-center py-8">
+                                Thank you! Your message has been sent. We'll get back to you soon.
+                            </p>
+                        ) : (
+                        <form onSubmit={handleVRContactSubmit} className="space-y-6">
                             <div>
                                 <label className="block font-oswald text-[#0F172A] mb-2 uppercase tracking-wide text-sm">Name</label>
                                 <input
                                     type="text"
+                                    name="name"
+                                    value={vrForm.name}
+                                    onChange={(e) => setVRForm(p => ({ ...p, name: e.target.value }))}
+                                    required
                                     className="w-full bg-[#E2E8F0] border border-gray-300 p-3 outline-none focus:border-[#0000B3] transition-colors"
                                 />
                             </div>
@@ -194,23 +219,32 @@ const VR = () => {
                                 <label className="block font-oswald text-[#0F172A] mb-2 uppercase tracking-wide text-sm">Email address</label>
                                 <input
                                     type="email"
+                                    name="email"
+                                    value={vrForm.email}
+                                    onChange={(e) => setVRForm(p => ({ ...p, email: e.target.value }))}
+                                    required
                                     className="w-full bg-[#E2E8F0] border border-gray-300 p-3 outline-none focus:border-[#0000B3] transition-colors"
                                 />
                             </div>
                             <div>
                                 <label className="block font-oswald text-[#0F172A] mb-2 uppercase tracking-wide text-sm">Leave a message</label>
                                 <textarea
+                                    name="message"
+                                    value={vrForm.message}
+                                    onChange={(e) => setVRForm(p => ({ ...p, message: e.target.value }))}
+                                    required
                                     rows="4"
                                     className="w-full bg-[#E2E8F0] border border-gray-300 p-3 outline-none focus:border-[#0000B3] transition-colors"
-                                ></textarea>
+                                />
                             </div>
-                            <button className="w-full bg-black text-white font-oswald text-xl py-4 rounded-full hover:bg-gray-900 transition-all uppercase tracking-wider">
-                                Submit
+                            <button type="submit" disabled={vrSubmitting} className="w-full bg-black text-white font-oswald text-xl py-4 rounded-full hover:bg-gray-900 transition-all uppercase tracking-wider disabled:opacity-50">
+                                {vrSubmitting ? 'Sending...' : 'Submit'}
                             </button>
                             <p className="text-xs text-gray-500 text-center mt-4 font-sans">
                                 Your privacy is important to us. No data is shared with third parties.
                             </p>
                         </form>
+                        )}
                     </div>
                 </div>
             </section>

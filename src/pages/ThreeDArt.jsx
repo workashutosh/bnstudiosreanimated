@@ -1,6 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
+import { submitToContact } from '../utils/submitForm';
 
 const ThreeDArt = () => {
+    const [formData, setFormData] = useState({
+        requirements: '',
+        familiarity: 0,
+        growWith: [],
+        contact: ''
+    });
+    const [submitting, setSubmitting] = useState(false);
+    const [formSuccess, setFormSuccess] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setSubmitting(true);
+        const payload = {
+            name: '3D Art Form',
+            'Requirements': formData.requirements,
+            '3D/2D Familiarity (1-5)': formData.familiarity || 'Not selected',
+            'Grow with': formData.growWith.join(', ') || 'None selected',
+            'Email/Phone': formData.contact
+        };
+        const result = await submitToContact(payload, '3D Art page - Lets Start Building - Blood Nexus');
+        if (result.ok) {
+            setFormSuccess(true);
+            setFormData({ requirements: '', familiarity: 0, growWith: [], contact: '' });
+        }
+        setSubmitting(false);
+    };
+
+    const toggleGrowWith = (opt) => {
+        setFormData(p => ({
+            ...p,
+            growWith: p.growWith.includes(opt) ? p.growWith.filter(x => x !== opt) : [...p.growWith, opt]
+        }));
+    };
     return (
         <>
             {/* Scoped Fonts */}
@@ -19,12 +53,12 @@ const ThreeDArt = () => {
             </style>
 
             <div className="bg-[#F7F6E7] min-h-screen">
-                <section className="w-full px-6 md:px-16 min-h-screen flex items-center">
-                    <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+                <section className="w-full px-6 md:px-16 min-h-screen flex items-center relative">
+                    <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center w-full">
 
                         {/* LEFT CONTENT */}
                         <div>
-                            <h1 className="threeD-anton text-[90px] md:text-[150px] leading-[0.9] text-[#FF5A00] tracking-tight">
+                            <h1 className="threeD-anton text-[90px] md:text-[150px] leading-[0.9] text-[#0b0b0b] tracking-tight">
                                 STAND OUT.
                                 <br />
                                 SELL MORE.
@@ -42,23 +76,18 @@ const ThreeDArt = () => {
                                 gameplay.
                             </p>
 
-                            <button className="threeD-anton mt-10 bg-[#D92D6A] text-white text-xl px-12 py-4 rounded-full shadow-[0_8px_0_#A91E4D] hover:translate-y-[4px] hover:shadow-[0_4px_0_#A91E4D] transition-all">
+                            <button className="threeD-anton mt-10 bg-[#0b0b0b] text-white text-xl px-12 py-4 rounded-full shadow-[0_8px_0_#A91E4D] hover:translate-y-[4px] hover:shadow-[0_4px_0_#A91E4D] transition-all">
                                 COUNT ME IN!
                             </button>
                         </div>
 
-                        {/* RIGHT IMAGE */}
-                        <div className="flex justify-center">
-                            <div className="rounded-4xl">
-                                <img
-                                    //src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1769016946/88835838-efed-4010-b169-4e68f75efa52.png"
-                                    //src="https://i.pinimg.com/736x/cf/85/2f/cf852f48476cc90984e710c2d966278d.jpg"
-                                    src="https://i.pinimg.com/736x/de/ac/bc/deacbc994af99602c7c699e89bc29b98.jpg"
-                                    alt="3D Art"
-                                    className="w-[520px] max-h-[500px] object-contain rounded-4xl"
-                                />
-                            </div>
-                        </div>
+                        {/* RIGHT - IMAGE AS BACKGROUND */}
+                        <div
+                            className="hidden md:block absolute right-0 top-0 bottom-0 w-1/2 rounded-l-[40px] overflow-hidden bg-cover bg-center bg-no-repeat"
+                            style={{
+                                backgroundImage: "url('https://res.cloudinary.com/df7s2xmz1/image/upload/v1770213471/ChatGPT_Image_Feb_4_2026_07_25_56_PM_bvzmwv.png')"
+                            }}
+                        />
 
                     </div>
                 </section>
@@ -73,7 +102,7 @@ const ThreeDArt = () => {
                                 {/* Since no clean asset was provided, I am using a placeholder colored block to represent the image area shown in the reference (Shoes/Bag). 
                         The user can replace this src with the actual asset later. */}
                                 <img
-                                    src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770223429/6a244693-8114-4990-a5d4-2721a2462563.png"
                                     alt="2D Art Creative"
                                     className="w-full h-full object-cover mix-blend-multiply opacity-80"
                                 />
@@ -82,7 +111,7 @@ const ThreeDArt = () => {
 
                         {/* RIGHT CONTENT */}
                         <div className="order-1 md:order-2">
-                            <h2 className="threeD-anton text-[50px] md:text-[70px] lg:text-[80px] leading-tight text-[#FF5A00] tracking-tight mb-8">
+                            <h2 className="threeD-anton text-[50px] md:text-[70px] lg:text-[80px] leading-tight text-[#0b0b0b] tracking-tight mb-8">
                                 2D ART & CREATIVITY
                             </h2>
 
@@ -141,7 +170,7 @@ const ThreeDArt = () => {
                     <div className="max-w-7xl mx-auto">
 
                         {/* TITLE */}
-                        <h2 className="threeD-anton text-[70px] md:text-[100px] leading-[0.85] text-[#FF5A00] tracking-tight mb-20 text-center uppercase">
+                        <h2 className="threeD-anton text-[70px] md:text-[100px] leading-[0.85] text-[#0b0b0b] tracking-tight mb-20 text-center uppercase">
                             3D Modeling & Animation
                         </h2>
 
@@ -154,7 +183,7 @@ const ThreeDArt = () => {
                                     <span className="font-bold">High-Fidelity Modeling</span> that captures every detail, from hard-surface mechanical parts to organic creature designs.
                                 </p>
                                 <img
-                                    src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1769017102/db52c33b-ddfb-4702-8e1b-09de85c5916b.png"
+                                    src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770213467/ChatGPT_Image_Feb_4_2026_07_26_22_PM_qqxhaj.png"
                                     alt="3D Process 1"
                                     className="w-full aspect-square object-cover rounded-[40px] shadow-sm hover:scale-[1.02] transition-transform duration-500"
                                 />
@@ -166,7 +195,7 @@ const ThreeDArt = () => {
                                     <span className="font-bold">Rigging & Animation</span> that brings static meshes to life with fluid motion, realistic physics, and expressive character acting.
                                 </p>
                                 <img
-                                    src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1769017116/c79bede1-d11f-49a0-8739-ce2a6b71a6eb.png"
+                                    src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770225118/SpiderOnOff_e5qxyl.gif"
                                     alt="3D Process 2"
                                     className="w-full aspect-square object-cover rounded-[40px] shadow-sm hover:scale-[1.02] transition-transform duration-500"
                                 />
@@ -178,7 +207,7 @@ const ThreeDArt = () => {
                                     <span className="font-bold">Engine-Ready Optimization</span> ensuring your assets look great without killing your frame rate. Topology matters.
                                 </p>
                                 <img
-                                    src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1769017164/79cbf53f-5536-48b8-a831-3eba7e64637b.png"
+                                    src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770213473/ChatGPT_Image_Feb_4_2026_07_26_34_PM_qmbgys.png"
                                     alt="3D Process 3"
                                     className="w-full aspect-square object-cover rounded-[40px] shadow-sm hover:scale-[1.02] transition-transform duration-500"
                                 />
@@ -189,20 +218,20 @@ const ThreeDArt = () => {
                 </section>
 
                 {/* SECTION 4: CREATIVE DIRECTION */}
-                <section className="w-full bg-[#ff6105] px-6 md:px-16 py-24 text-center md:text-left overflow-hidden">
+                <section className="w-full bg-[#060606] px-6 md:px-16 py-24 text-center md:text-left overflow-hidden">
                     <div className="max-w-7xl mx-auto flex flex-col items-center md:items-start">
 
                         {/* TOP IMAGE */}
                         <div className="w-full mb-12">
                             <img
-                                src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1769017264/e5d9f789-6d66-4cdf-bfa6-879e29441f4a.png"
+                                src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770223968/127ec944-4873-4ae2-9703-81d9f940ed5e.png"
                                 alt="Creative Direction Stools"
                                 className="w-full h-[400px] md:h-[500px] object-cover rounded-[50px] shadow-lg"
                             />
                         </div>
 
                         {/* SMALL TEXT */}
-                        <p className="threeD-manrope text-black font-bold text-xl md:text-2xl mb-24 max-w-sm leading-tight text-left self-start pl-4 md:pl-0">
+                        <p className="threeD-manrope text-white font-bold text-xl md:text-2xl mb-24 max-w-sm leading-tight text-left self-start pl-4 md:pl-0">
                             Reach out for any questions <br /> or suggestions.
                         </p>
 
@@ -242,16 +271,16 @@ const ThreeDArt = () => {
                 </section>
 
                 {/* SECTION 6: CONTACT / LETS START BUILDING */}
-                <section className="w-full bg-[#F7F6E7] px-6 md:px-16 py-24">
+                <section className="w-full bg-[#aaaaaa] px-6 md:px-16 py-24">
                     <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
 
                         {/* LEFT CONTENT */}
                         <div className="flex flex-col">
-                            <h2 className="threeD-anton text-[80px] md:text-[100px] leading-[0.9] text-[#FF5A00] tracking-tight mb-12 uppercase">
+                            <h2 className="threeD-anton text-[80px] md:text-[100px] leading-[0.9] text-[#000000] tracking-tight mb-12 uppercase">
                                 LETS <br /> START BUILDING
                             </h2>
                             <img
-                                src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1769017403/f4bd60c4-d8ba-4f44-9621-2f48623a1ba5.png"
+                                src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770213475/ChatGPT_Image_Feb_4_2026_07_26_02_PM_o8am1w.png"
                                 alt="Lets Start Building"
                                 className="w-full max-w-[500px] object-contain rounded-[60px]"
                             />
@@ -259,23 +288,37 @@ const ThreeDArt = () => {
 
                         {/* RIGHT FORM */}
                         <div className="font-[Manrope]">
-                            <form className="space-y-10">
-
+                            {formSuccess ? (
+                                <p className="text-[#0b0b0b] text-lg text-center py-8">
+                                    Thank you! We've saved your spot. We'll be in touch soon.
+                                </p>
+                            ) : (
+                            <form onSubmit={handleSubmit} className="space-y-10">
                                 {/* QUESTION 1 */}
                                 <div>
-                                    <label className="block text-[#D92D6A] text-lg mb-3">What best describes your requirements?</label>
-                                    <input type="text" className="w-full bg-transparent border border-[#E5E0C5] rounded-lg p-4 outline-none focus:border-[#D92D6A] transition-colors" />
+                                    <label className="block text-[#0b0b0b] text-lg mb-3">What best describes your requirements?</label>
+                                    <input
+                                        type="text"
+                                        value={formData.requirements}
+                                        onChange={(e) => setFormData(p => ({ ...p, requirements: e.target.value }))}
+                                        className="w-full bg-transparent border border-[#060606] rounded-lg p-4 outline-none focus:border-[#0b0b0b] transition-colors"
+                                    />
                                 </div>
 
                                 {/* QUESTION 2 - RATING */}
                                 <div>
-                                    <label className="block text-[#D92D6A] text-lg mb-3">
+                                    <label className="block text-[#0b0b0b] text-lg mb-3">
                                         How familiar are you with 3D and 2D Art? <br />
                                         <span className="text-sm opacity-80">(1 - Not familiar; 5 - Very familiar)</span>
                                     </label>
                                     <div className="grid grid-cols-5 gap-4">
                                         {[1, 2, 3, 4, 5].map((num) => (
-                                            <button key={num} type="button" className="bg-[#EFDECD] hover:bg-[#D92D6A] hover:text-white text-[#D92D6A] py-3 rounded-lg font-bold transition-colors">
+                                            <button
+                                                key={num}
+                                                type="button"
+                                                onClick={() => setFormData(p => ({ ...p, familiarity: num }))}
+                                                className={`py-3 rounded-lg font-bold transition-colors ${formData.familiarity === num ? 'bg-[#0b0b0b] text-white' : 'bg-[#515151] hover:bg-[#0b0b0b] hover:text-white text-[#0b0b0b]'}`}
+                                            >
                                                 {num}
                                             </button>
                                         ))}
@@ -284,12 +327,17 @@ const ThreeDArt = () => {
 
                                 {/* QUESTION 3 - CHECKBOXES */}
                                 <div>
-                                    <label className="block text-[#D92D6A] text-lg mb-3">how do you want us to grow with you</label>
+                                    <label className="block text-[#0b0b0b] text-lg mb-3">how do you want us to grow with you</label>
                                     <div className="space-y-3">
                                         {['Practical tips', 'Industry trends', 'Tools & resources'].map((opt) => (
-                                            <label key={opt} className="flex items-center gap-3 bg-[#EFDECD]/50 p-4 rounded-lg cursor-pointer hover:bg-[#EFDECD] transition-colors">
-                                                <input type="checkbox" className="w-5 h-5 accent-[#D92D6A]" />
-                                                <span className="text-[#D92D6A]/80">{opt}</span>
+                                            <label key={opt} className={`flex items-center gap-3 p-4 rounded-lg cursor-pointer transition-colors ${formData.growWith.includes(opt) ? 'bg-[#EFDECD]' : 'bg-[#EFDECD]/50 hover:bg-[#EFDECD]'}`}>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={formData.growWith.includes(opt)}
+                                                    onChange={() => toggleGrowWith(opt)}
+                                                    className="w-5 h-5 accent-[#0b0b0b]"
+                                                />
+                                                <span className="text-[#0b0b0b]/80">{opt}</span>
                                             </label>
                                         ))}
                                     </div>
@@ -297,19 +345,26 @@ const ThreeDArt = () => {
 
                                 {/* QUESTION 4 - EMAIL/PHONE */}
                                 <div>
-                                    <label className="block text-[#D92D6A] text-lg mb-3">your email and phone</label>
-                                    <input type="text" className="w-full bg-[#F3F0E0] border border-[#E5E0C5] rounded-lg p-4 outline-none focus:border-[#D92D6A] transition-colors h-16" />
+                                    <label className="block text-[#0b0b0b] text-lg mb-3">your email and phone</label>
+                                    <input
+                                        type="text"
+                                        value={formData.contact}
+                                        onChange={(e) => setFormData(p => ({ ...p, contact: e.target.value }))}
+                                        required
+                                        className="w-full bg-[#000000] text-white border border-[#ffffff] rounded-lg p-4 outline-none focus:border-[#0b0b0b] transition-colors h-16"
+                                        placeholder="your@email.com or +1234567890"
+                                    />
                                 </div>
 
                                 {/* SUBMIT */}
-                                <button type="submit" className="w-full bg-[#D92D6A] text-white text-xl py-4 rounded-full font-bold shadow-lg hover:bg-[#b02253] transition-colors">
-                                    Save my spot!
+                                <button type="submit" disabled={submitting} className="w-full bg-[#0b0b0b] text-white text-xl py-4 rounded-full font-bold shadow-lg hover:bg-[#b02253] transition-colors disabled:opacity-50">
+                                    {submitting ? 'Saving...' : 'Save my spot!'}
                                 </button>
-                                <p className="text-xs text-center text-[#D92D6A]/60 mt-4">
-                                    Your Canva profile name will be shared. Never submit passwords.
+                                <p className="text-xs text-center text-[#0b0b0b]/60 mt-4">
+                                    Your information will be sent securely. We'll never share your data.
                                 </p>
-
                             </form>
+                            )}
                         </div>
 
                     </div>

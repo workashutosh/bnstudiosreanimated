@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CONTACT_EMAIL } from '../config/contact';
 
 const Footer = () => {
     return (
@@ -46,7 +47,7 @@ const Footer = () => {
                     {/* Connect */}
                     <div>
                         <h4 className="text-white font-bebas text-xl mb-6 tracking-wide">CONNECT</h4>
-                        <p className="text-zinc-500 font-oswald text-sm mb-4">hello@bloodnexus.com</p>
+                        <a href={`mailto:${CONTACT_EMAIL}`} className="text-zinc-500 font-oswald text-sm mb-4 block hover:text-red-600 transition-colors">{CONTACT_EMAIL}</a>
                         <div className="flex gap-4">
                             {['Twitter', 'LinkedIn', 'Instagram', 'ArtStation'].map((social) => (
                                 <a key={social} href="#" className="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-500 hover:bg-red-600 hover:text-white transition-all duration-300">
@@ -72,3 +73,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+

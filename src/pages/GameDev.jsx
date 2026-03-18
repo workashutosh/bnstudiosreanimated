@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { submitToContact } from '../utils/submitForm';
 
 const GameDev = () => {
+
+    
     const [formData, setFormData] = useState({
         name: 'John Doe',
         email: 'john@company.com',
@@ -16,7 +19,32 @@ const GameDev = () => {
     const [expandedFAQ, setExpandedFAQ] = useState(null);
     const [countedValues, setCountedValues] = useState({ clients: 0, projects: 0, years: 0 });
     const [hasAnimated, setHasAnimated] = useState(false);
+    const [carouselIndex, setCarouselIndex] = useState(0);
     const statsRef = useRef(null);
+
+    const capabilities = [
+        { title: 'PC Games', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770217512/be576e3c-a669-41bf-85f5-ce7913ce30e6.png', link: '/game-dev' },
+        { title: 'Mobile Games', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770215701/63e538fd-6afe-45f8-b9ed-632e7a05ce51.png', link: '/game-dev' },
+        { title: 'FPS Controllers', img: 'https://res.cloudinary.com/df7s2xmz1/video/upload/v1770210825/VID-20251208-WA0017_urbmdi.mp4', isVideo: true, link: '/game-dev' },
+        { title: 'Multiplayer Systems', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770214886/d393f5a6-3f49-42bb-9167-cbf11bc517b0.png', link: '/game-dev' },
+        { title: 'Game optimization', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770213469/ChatGPT_Image_Feb_4_2026_07_26_18_PM_sfqz7k.png', link: '/game-dev' },
+        { title: 'Level Design', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770212683/WhatsApp_Image_2025-11-11_at_13.38.11_f58e8469_nr6lwe.jpg', link: '/game-dev' },
+        { title: 'Prototyping', img: 'https://res.cloudinary.com/df7s2xmz1/video/upload/v1770213682/WhatsApp_Video_2025-09-06_at_17.18.16_23073242_y45v9p.mp4', isVideo: true, link: '/game-dev' },
+        { title: 'Enviroment Design', img: 'https://res.cloudinary.com/df7s2xmz1/video/upload/v1770213276/Environment_gycgp5.mp4',  isVideo: true, link: '/game-dev' },
+        { title: 'Character Design ', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770214925/Untitled_design_tzn16n.png', link: '/game-dev' },
+        { title: 'Creature Design', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770213888/cd42f285-2bc8-48af-a9bc-f299c490f9cd.png', link: '/game-dev' },
+        { title: 'Post-launch Support', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770215376/1bdbeff2-c419-403b-8f77-0c381b441602.png', link: '/contact' },
+        { title: 'VR Games', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770215050/898c4f1c-17b0-4217-a13e-7c169ff469c5.png', link: '/game-dev' },
+
+    
+    ];
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCarouselIndex((prev) => (prev + 1) % capabilities.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
 
     // Animated counter effect
     useEffect(() => {
@@ -135,27 +163,30 @@ const GameDev = () => {
         setIsSubmitting(true);
         setSubmitStatus(null);
 
-        // Simulate API call
-        try {
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            console.log('Form submitted:', formData);
+        const payload = {
+            name: formData.name,
+            email: formData.email,
+            'Mission Type': formData.missionType,
+            'Budget': formData.budget,
+            'Briefing': formData.briefing
+        };
+
+        const result = await submitToContact(payload, 'Mission Control - New project inquiry - Blood Nexus');
+
+        if (result.ok) {
             setSubmitStatus('success');
-            // Reset form after success
-            setTimeout(() => {
-                setFormData({
-                    name: '',
-                    email: '',
-                    missionType: 'game-dev',
-                    budget: '< $5k',
-                    briefing: ''
-                });
-                setSubmitStatus(null);
-            }, 3000);
-        } catch (error) {
+            setFormData({
+                name: '',
+                email: '',
+                missionType: 'game-dev',
+                budget: '< $5k',
+                briefing: ''
+            });
+            setTimeout(() => setSubmitStatus(null), 5000);
+        } else {
             setSubmitStatus('error');
-        } finally {
-            setIsSubmitting(false);
         }
+        setIsSubmitting(false);
     };
 
     // Reusable Angular Header Component
@@ -186,71 +217,113 @@ const GameDev = () => {
                         muted
                         playsInline
                     >
-                        <source src="https://res.cloudinary.com/df7s2xmz1/video/upload/v1765528035/video_theme_trailer_bloodnexusstudios_mario_nezzkk.mp4" type="video/mp4" />
+                        <source src="https://res.cloudinary.com/df7s2xmz1/video/upload/v1770215484/Main_Page_wjuxtw.mp4" type="video/mp4" />
                     </video>
                     {/* Cinematic Letterbox effect if desired, or just gradient */}
                     <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/80"></div>
                 </div>
 
-                <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-4 pt-20">
-                    <h1 className="text-6xl md:text-8xl font-bebas text-white drop-shadow-2xl tracking-widest mb-4">
+                <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-24 sm:pt-20 pb-20">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bebas text-white drop-shadow-2xl tracking-widest mb-3 sm:mb-4 leading-tight">
                         GAME DEVELOPMENT
                     </h1>
-                    <p className="text-xl md:text-2xl font-oswald text-white max-w-3xl drop-shadow-lg mb-10 uppercase tracking-widest bg-black/50 px-6 py-2">
+                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-oswald text-white max-w-3xl drop-shadow-lg mb-6 sm:mb-10 uppercase tracking-widest bg-black/50 px-4 sm:px-6 py-2">
                         WITH HIGH-QUALITY VISUALS & SMOOTH GAMEPLAY
                     </p>
-                    <p className="text-lg text-gray-200 max-w-2xl mb-8 font-oswald">
+                    <p className="text-sm sm:text-base md:text-lg text-gray-200 max-w-2xl mb-6 sm:mb-8 font-oswald px-1">
                         We build games that look stunning and feel great to play. From PC to mobile and VR, every project is shaped with stable systems, clear gameplay design, and visuals that draw players in.
                     </p>
                     <Link to="/contact">
-                        <button className="bg-white text-black font-bebas text-2xl px-10 py-3 border-2 border-white hover:bg-transparent hover:text-white transition-all duration-300 uppercase tracking-widest">
+                        <button className="bg-white text-black font-bebas text-lg sm:text-xl md:text-2xl px-6 sm:px-10 py-2.5 sm:py-3 border-2 border-white hover:bg-transparent hover:text-white transition-all duration-300 uppercase tracking-widest min-h-[44px] touch-manipulation w-full max-w-xs sm:max-w-none">
                             Start Your Game Project
                         </button>
                     </Link>
                 </div>
             </div>
 
-            {/* 2. CAPABILITIES GRID: "Narrative Adventure Games" Style */}
-            <section className="py-20 bg-zinc-100 text-black">
-                <div className="container mx-auto px-6">
+            {/* 2. CAPABILITIES CAROUSEL */}
+            <section className="relative bg-zinc-100 text-black overflow-hidden">
+                <div className="container mx-auto px-4 sm:px-6 pt-12 sm:pt-16 md:pt-20 pb-6 sm:pb-8">
                     <SectionHeader title="Our Capabilities" />
-                    <p className="mb-8 font-oswald text-xl text-gray-700">We cover complete game production from idea to release. Our team handles:</p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[
-                            { title: 'PC, Mobile & VR Games', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1765535063/10_i2dwza.png' },
-                            { title: 'FPS/TPS Controllers', img: 'https://res.cloudinary.com/df7s2xmz1/video/upload/v1765535121/SHot2.0000.2mp4_nnxpor.mp4', isVideo: true },
-                            { title: 'Multiplayer Systems', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1765535083/trench_gun_2_flxvgb.png' },
-                            { title: 'RPG Progression', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1765535069/Poster_9.1_ooxfev.png' },
-                            { title: 'Prototyping & Level Design', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1765535069/Poster_9.1_ooxfev.png' },
-                            { title: 'Character Setup (CC4)', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1765535083/STG44_LOGO2_xrswy2.png' }, // Placeholder visual
-                            { title: 'Post-launch Support', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1765535069/Poster_9.1_ooxfev.png' } // Placeholder visual
-                        ].map((item, idx) => (
-                            <div key={idx} className="group relative aspect-video bg-black overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
+                    <p className="font-oswald text-base sm:text-lg md:text-xl text-gray-700">We cover complete game production from idea to release.</p>
+                </div>
+                <div className="relative h-[55vh] min-h-[380px] sm:h-[60vh] sm:min-h-[420px] md:h-[65vh] md:min-h-[450px] lg:h-[70vh] lg:min-h-[500px] w-full">
+                    {capabilities.map((item, idx) => (
+                        <div
+                            key={idx}
+                            className={`absolute inset-0 transition-opacity duration-700 ${
+                                idx === carouselIndex ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+                            }`}
+                        >
                                 {item.isVideo ? (
-                                    <video src={item.img} autoPlay loop muted playsInline className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" />
-                                ) : (
-                                    <img src={item.img} alt={item.title} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
-                                )}
-
-                                {/* Static overlay for title, no fade-in-up animation */}
-                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40">
-                                    <div className="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center">
-                                        <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[18px] border-l-white border-b-[10px] border-b-transparent ml-1"></div>
-                                    </div>
-                                </div>
-                                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent p-4">
-                                    <h3 className="text-white font-bebas text-2xl tracking-wide">{item.title}</h3>
+                                <video
+                                    src={item.img}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
+                            ) : (
+                                <img
+                                    src={item.img}
+                                    alt={item.title}
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
+                            )}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-10 lg:p-16 z-20">
+                                <div className="container mx-auto px-4 sm:px-6">
+                                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bebas text-white mb-4 sm:mb-6 tracking-widest uppercase leading-tight">
+                                        {item.title}
+                                    </h3>
+                                    
                                 </div>
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
                 </div>
+
+                {/* Navigation Dots - touch-friendly on mobile */}
+                <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2 sm:gap-3">
+                    {capabilities.map((_, idx) => (
+                        <button
+                            key={idx}
+                            onClick={() => setCarouselIndex(idx)}
+                            className={`rounded-full transition-all duration-300 touch-manipulation min-w-[10px] min-h-[10px] ${
+                                idx === carouselIndex
+                                    ? 'h-2 w-8 sm:w-10 bg-[#EF4444]'
+                                    : 'h-1.5 w-1.5 sm:h-2 sm:w-2 bg-white/50 hover:bg-white/80 active:bg-white'
+                            }`}
+                            aria-label={`Go to slide ${idx + 1}`}
+                        />
+                    ))}
+                </div>
+
+                {/* Prev/Next Arrows - smaller on mobile, adequate touch target */}
+                <button
+                    onClick={() => setCarouselIndex((prev) => (prev - 1 + capabilities.length) % capabilities.length)}
+                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-black/80 border border-white/20 flex items-center justify-center text-white transition-colors touch-manipulation active:scale-95"
+                    aria-label="Previous slide"
+                >
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button
+                    onClick={() => setCarouselIndex((prev) => (prev + 1) % capabilities.length)}
+                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-black/80 border border-white/20 flex items-center justify-center text-white transition-colors touch-manipulation active:scale-95"
+                    aria-label="Next slide"
+                >
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
             </section>
 
             {/* STATISTICS SECTION */}
-            <section ref={statsRef} className="py-20 bg-gradient-to-r from-black via-zinc-900 to-purple-950/30 text-white">
-                <div className="container mx-auto px-6">
+            <section ref={statsRef} className="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-black via-zinc-900 to-purple-950/30 text-white">
+                <div className="container mx-auto px-4 sm:px-6">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* Column 1 */}
                         <div className="text-center md:text-left px-4 md:px-8 md:border-r md:border-white/10 group hover:scale-105 transition-transform duration-300">
@@ -267,7 +340,7 @@ const GameDev = () => {
                             </div>
                             <h3 className="text-xl md:text-2xl font-oswald text-white uppercase tracking-wide mb-2">ENTERPRISE CLIENTS</h3>
                             <p className="text-gray-400 text-sm md:text-base font-oswald">Strategic Partnerships</p>
-                        </div>
+                                    </div>
 
                         {/* Column 2 */}
                         <div className="text-center md:text-left px-4 md:px-8 md:border-r md:border-white/10 group hover:scale-105 transition-transform duration-300">
@@ -315,7 +388,7 @@ const GameDev = () => {
                         {/* Image Side */}
                         <div className="relative min-h-[400px] border-r border-zinc-800">
                             <img
-                                src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1765535063/10_i2dwza.png"
+                                src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770213849/e78b9078-84ce-4956-8ae5-c1fa1d5506fa.png"
                                 alt="Player Experience"
                                 className="w-full h-full object-cover opacity-80"
                             />
@@ -350,7 +423,7 @@ const GameDev = () => {
             </section>
 
             {/* 4. SELECTED WORKS: Horizontal Layout */}
-            <section className="py-20 bg-white text-black">
+            {/* <section className="py-20 bg-white text-black">
                 <div className="container mx-auto px-6">
                     <SectionHeader title="Selected Works" />
 
@@ -367,12 +440,12 @@ const GameDev = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* FAQ SECTION */}
-            <section className="py-20 bg-zinc-900 text-white relative">
-                <div className="container mx-auto px-6">
-                    <h2 className="text-5xl md:text-6xl font-bebas text-white mb-12 uppercase tracking-wide">Frequently Asked Questions</h2>
+            <section className="py-12 sm:py-16 md:py-20 bg-zinc-900 text-white relative">
+                <div className="container mx-auto px-4 sm:px-6">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas text-white mb-8 sm:mb-12 uppercase tracking-wide">Frequently Asked Questions</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
@@ -416,7 +489,7 @@ const GameDev = () => {
                                             </svg>
                                         </div>
                                         <div className="flex-1">
-                                            <h3 className="text-lg font-oswald font-bold text-white mb-3 uppercase flex items-center justify-between">
+                                            <h3 className="text-base sm:text-lg font-oswald font-bold text-white mb-3 uppercase flex items-center justify-between gap-2">
                                                 <span>{faq.question}</span>
                                                 <svg
                                                     className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${expandedFAQ === index ? 'rotate-180' : ''}`}
@@ -444,21 +517,21 @@ const GameDev = () => {
 
             {/* 5. PRODUCTION PIPELINE: Replaces Tech Stack */}
             <section className="py-20 bg-black border-t-4 border-[#EF4444]">
-                <div className="container mx-auto px-6">
+                <div className="container mx-auto px-4 sm:px-6">
                     <SectionHeader title="Our Production Pipeline" />
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                         {[
-                            { name: 'Unreal Engine 5.4', desc: 'Next-Gen Core' },
-                            { name: 'Unity HDRP/URP', desc: 'Visual Fidelity' },
-                            { name: 'Lumen & Nanite', desc: 'Real-time Global Illumination' },
-                            { name: 'Chaos Physics', desc: 'Destruction & Simulation' },
-                            { name: 'CC4 Pipeline', desc: 'Advanced Characters' },
-                            { name: 'Animation Retargeting', desc: 'Efficient Fluid Motion' },
-                            { name: 'Profiling', desc: 'Deep Optimization' },
-                            { name: 'Live Support', desc: 'Post-Launch Stability' }
+                            { name: 'UE 5.6 Core Integration', desc: 'Next-Gen Technical Foundation' },
+                            { name: 'Unity 6 Ecosystem', desc: 'Multi-Platform Visual Fidelity' },
+                            { name: 'Dynamic Lighting & Geometry', desc: 'Real-time Global Illumination & Virtualization' },
+                            { name: 'Chaos Simulation Suite', desc: 'High-Fidelity Destruction & Dynamics' },
+                            { name: 'Advanced Character Pipeline', desc: 'High-Detail Hero & NPC Development' },
+                            { name: 'Cinematic Rigging & Motion', desc: 'Efficient Fluid Systems & Bone Logic' },
+                            { name: 'Technical Optimization', desc: 'Deep Performance Analytics' },
+                            { name: 'Live Ops & Maintenance', desc: 'Post-Launch Stability & Scalability' }
                         ].map((tech, idx) => (
-                            <div key={idx} className="bg-zinc-900/50 p-6 border border-zinc-800 hover:border-[#EF4444] transition-colors group">
-                                <h3 className="text-2xl font-bebas text-white group-hover:text-[#EF4444] transition-colors">{tech.name}</h3>
+                            <div key={idx} className="bg-zinc-900/50 p-4 sm:p-6 border border-zinc-800 hover:border-[#EF4444] transition-colors group">
+                                <h3 className="text-lg sm:text-xl md:text-2xl font-bebas text-white group-hover:text-[#EF4444] transition-colors">{tech.name}</h3>
                                 <p className="font-oswald text-zinc-500 text-sm">{tech.desc}</p>
                             </div>
                         ))}
@@ -467,10 +540,10 @@ const GameDev = () => {
             </section>
 
             {/* 6. MISSION CONTROL FORM (with Ready to Create background) */}
-            <section className="relative py-32 bg-zinc-900 text-center text-white overflow-hidden">
+            <section className="relative py-16 sm:py-24 md:py-32 bg-zinc-900 text-center text-white overflow-hidden">
                 <div className="absolute inset-0 opacity-20 bg-[url('https://res.cloudinary.com/df7s2xmz1/image/upload/v1765535063/10_i2dwza.png')] bg-cover bg-center"></div>
-                <div className="relative z-10 container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto bg-black/80 backdrop-blur-md border-2 border-zinc-800/80 p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                <div className="relative z-10 container mx-auto px-4 sm:px-6">
+                    <div className="max-w-4xl mx-auto bg-black/80 backdrop-blur-md border-2 border-zinc-800/80 p-4 sm:p-6 md:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
                         {/* Corner accent */}
                         <div className="absolute top-0 right-0 w-32 h-32 bg-[#EF4444] opacity-20" style={{ clipPath: 'polygon(100% 0, 0 0, 100% 100%)' }}></div>
 
@@ -478,10 +551,10 @@ const GameDev = () => {
                         <div className="absolute -inset-1 bg-gradient-to-r from-red-600/30 via-transparent to-purple-600/30 blur-xl opacity-60"></div>
 
                         <div className="relative z-10">
-                            <div className="flex items-center justify-center mb-4">
-                                <div className="w-16 h-1 bg-[#EF4444] mr-4"></div>
-                                <h2 className="text-4xl md:text-5xl font-bebas text-white uppercase tracking-widest">Mission Control</h2>
-                                <div className="w-16 h-1 bg-[#EF4444] ml-4"></div>
+                            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-4">
+                                <div className="hidden sm:block w-12 lg:w-16 h-1 bg-[#EF4444]"></div>
+                                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bebas text-white uppercase tracking-widest">Mission Control</h2>
+                                <div className="hidden sm:block w-12 lg:w-16 h-1 bg-[#EF4444]"></div>
                             </div>
                             <p className="text-gray-300 font-oswald text-center mb-12 text-sm md:text-base tracking-wide">
                                 Initialize your project with Blood Nexus Studio
@@ -540,8 +613,8 @@ const GameDev = () => {
                                                 key={type.value}
                                                 type="button"
                                                 onClick={() => handleMissionTypeChange(type.value)}
-                                                className={`px-4 py-3 rounded font-oswald uppercase tracking-wide text-xs md:text-sm transition-all border-2 ${formData.missionType === type.value
-                                                    ? 'bg-[#EF4444] text-white border-[#EF4444] shadow-lg shadow-red-500/40 scale-105'
+                                                className={`px-3 sm:px-4 py-2.5 sm:py-3 rounded font-oswald uppercase tracking-wide text-xs md:text-sm transition-all border-2 min-h-[44px] touch-manipulation ${formData.missionType === type.value
+                                                    ? 'bg-[#EF4444] text-white border-[#EF4444] shadow-lg shadow-red-500/40 sm:scale-105'
                                                     : 'bg-zinc-900/60 text-white border-zinc-700/50 hover:border-zinc-600 hover:bg-zinc-800/60'
                                                     }`}
                                             >
@@ -562,8 +635,8 @@ const GameDev = () => {
                                                 key={budget}
                                                 type="button"
                                                 onClick={() => handleBudgetChange(budget)}
-                                                className={`px-4 py-3 rounded font-oswald uppercase tracking-wide text-xs md:text-sm transition-all border-2 ${formData.budget === budget
-                                                    ? 'bg-zinc-800 text-white border-zinc-600 shadow-md scale-105'
+                                                className={`px-3 sm:px-4 py-2.5 sm:py-3 rounded font-oswald uppercase tracking-wide text-xs md:text-sm transition-all border-2 min-h-[44px] touch-manipulation ${formData.budget === budget
+                                                    ? 'bg-zinc-800 text-white border-zinc-600 shadow-md sm:scale-105'
                                                     : 'bg-zinc-900/60 text-white border-zinc-700/50 hover:border-zinc-600 hover:bg-zinc-800/60'
                                                     }`}
                                             >
@@ -622,7 +695,7 @@ const GameDev = () => {
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className={`px-16 py-4 bg-black border-2 border-[#EF4444] text-white font-bebas text-xl uppercase tracking-widest hover:bg-[#EF4444] transition-all duration-300 flex items-center justify-center gap-3 shadow-xl shadow-red-500/30 hover:shadow-red-500/50 relative overflow-hidden group ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                                        className={`w-full sm:w-auto px-8 sm:px-16 py-3.5 sm:py-4 bg-black border-2 border-[#EF4444] text-white font-bebas text-lg sm:text-xl uppercase tracking-widest hover:bg-[#EF4444] transition-all duration-300 flex items-center justify-center gap-3 shadow-xl shadow-red-500/30 hover:shadow-red-500/50 relative overflow-hidden group min-h-[48px] touch-manipulation ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
                                             }`}
                                     >
                                         {isSubmitting ? (
@@ -639,7 +712,7 @@ const GameDev = () => {
                                                 <span className="text-sm transform group-hover:translate-y-[-2px] transition-transform">▲</span>
                                             </>
                                         )}
-                                    </button>
+                        </button>
                                 </div>
                             </form>
                         </div>

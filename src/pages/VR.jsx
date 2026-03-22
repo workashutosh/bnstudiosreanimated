@@ -20,14 +20,14 @@ const VR = () => {
 
     // Assets from request
     const assets = {
-        hero: "https://res.cloudinary.com/df7s2xmz1/image/upload/v1768747171/VR-bg_uqw3k8.png",
+        hero: "https://bloodnexusstudio.in/otassets/VR-bg_uqw3k8.png",
         gallery: [
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766296812/FamilyRoom_-_Copy_fcqzbg.jpg",
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766296828/IMG-20250421-WA0025_mu7mlq.jpg",
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766296827/IMG-20250421-WA0026_ubm637.jpg",
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766296827/IMG-20250421-WA0024_kobxdb.jpg",
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766296827/IMG-20250421-WA0022_mmd1oy.jpg",
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766296827/IMG-20250421-WA0019_dydete.jpg",
+            "https://bloodnexusstudio.in/otassets/FamilyRoom_-_Copy_fcqzbg.jpg",
+            "https://bloodnexusstudio.in/otassets/IMG-20250421-WA0025_mu7mlq.jpg",
+            "https://bloodnexusstudio.in/otassets/IMG-20250421-WA0026_ubm637.jpg",
+            "https://bloodnexusstudio.in/otassets/IMG-20250421-WA0024_kobxdb.jpg",
+            "https://bloodnexusstudio.in/otassets/IMG-20250421-WA0022_mmd1oy.jpg",
+            "https://bloodnexusstudio.in/otassets/IMG-20250421-WA0019_dydete.jpg",
         ]
     };
 
@@ -71,7 +71,7 @@ const VR = () => {
                 <div className="container mx-auto px-6">
                     <div className="bg-[#0033CC] p-8 md:p-12 relative overflow-hidden group">
                         <img
-                            src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770223492/cbaec4f1-d8a7-402f-84cc-424f62491a24.png"
+                            src="https://bloodnexusstudio.in/otassets/cbaec4f1-d8a7-402f-84cc-424f62491a24.png"
                             alt="VR Solutions"
                             className="w-full h-64 md:h-[570px] object-cover mb-8"
                         />
@@ -131,7 +131,7 @@ const VR = () => {
                         {/* Block 1 */}
                         <div className="flex flex-col md:flex-row gap-6 items-center">
                             <img
-                                src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1768747267/6dc2726f-447c-40fd-9184-69d9f3dbe147.png"
+                                src="https://bloodnexusstudio.in/otassets/6dc2726f-447c-40fd-9184-69d9f3dbe147.png"
                                 alt="VR Training"
                                 className="w-full md:w-1/2 object-cover rounded-sm shadow-[0_0_20px_rgba(213,0,249,0.3)]"
                             />
@@ -144,7 +144,7 @@ const VR = () => {
                         {/* Block 2 */}
                         <div className="flex flex-col md:flex-row gap-6 items-center">
                             <img
-                                src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1768747272/ac1b28f6-bc0b-4660-b0c9-55e106966887.png"
+                                src="https://bloodnexusstudio.in/otassets/ac1b28f6-bc0b-4660-b0c9-55e106966887.png"
                                 alt="VR Gaming"
                                 className="w-full md:w-1/2 object-cover rounded-sm shadow-[0_0_20px_rgba(0,229,255,0.3)]"
                             />
@@ -173,7 +173,7 @@ const VR = () => {
                     </div>
                     <div className="relative z-10 flex justify-end h-full">
                         <img
-                            src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1768745578/cbf57e62-e045-42a0-b6d9-2060b4a0d454.png"
+                            src="https://bloodnexusstudio.in/otassets/cbf57e62-e045-42a0-b6d9-2060b4a0d454.png"
                             alt="Augmented Reality Headset"
                             className="w-full max-w-lg object-contain block leading-none"
                         />
@@ -187,7 +187,7 @@ const VR = () => {
                 {/* Left Image Side */}
                 <div className="relative h-64 md:h-auto overflow-hidden">
                     <img
-                        src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1768747309/1277d925-0b66-4fa4-bfe0-e298fecaa80e.png"
+                        src="https://bloodnexusstudio.in/otassets/1277d925-0b66-4fa4-bfe0-e298fecaa80e.png"
                         alt="VR Experience"
                         className="absolute inset-0 w-[200%] h-full object-cover object-left"
                     />

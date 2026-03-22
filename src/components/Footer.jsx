@@ -11,7 +11,7 @@ const Footer = () => {
                     <div className="md:col-span-1">
                         <Link to="/" className="block mb-6">
                             <img
-                                src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1765530362/logo_x4jjuc.jpg"
+                                src="https://bloodnexusstudio.in/otassets/logo_x4jjuc.jpg"
                                 alt="BloodNexus"
                                 className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300"
                             />

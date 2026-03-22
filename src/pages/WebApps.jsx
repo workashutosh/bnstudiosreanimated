@@ -5,18 +5,18 @@ const WebApps = () => {
     // Merged Assets
     const assets = {
         web: [
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766393689/48707790-3cf9-4b45-afd1-f35dbe11fc7e.png", // Creative 1
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766393469/48c6bc10-99a6-46cb-9621-39e34ee5beb6.png", // Creative 2
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766393445/25cf4ea0-5ad9-4869-b7fb-1c33e631b55e.png", // Creative 3
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766393374/e997db8e-f93f-4118-8dbe-1f3bc12f2d9f.png", // Creative 4
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766393356/2ce2414b-a37c-4488-8f16-57786a524d58.png", // Creative 5
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766392999/81c500d3-c6f1-40a1-b821-368f4e11f491.png"  // Creative 6
+            "https://bloodnexusstudio.in/otassets/48707790-3cf9-4b45-afd1-f35dbe11fc7e.png", // Creative 1
+            "https://bloodnexusstudio.in/otassets/48c6bc10-99a6-46cb-9621-39e34ee5beb6.png", // Creative 2
+            "https://bloodnexusstudio.in/otassets/25cf4ea0-5ad9-4869-b7fb-1c33e631b55e.png", // Creative 3
+            "https://bloodnexusstudio.in/otassets/e997db8e-f93f-4118-8dbe-1f3bc12f2d9f.png", // Creative 4
+            "https://bloodnexusstudio.in/otassets/2ce2414b-a37c-4488-8f16-57786a524d58.png", // Creative 5
+            "https://bloodnexusstudio.in/otassets/81c500d3-c6f1-40a1-b821-368f4e11f491.png"  // Creative 6
         ],
         app: [
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766393921/71b176a7-2f8a-498b-b060-2d0fd3ed13d9.png",
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766393892/0c009dba-c4fc-48a5-8cd2-d5cf446c833b.png",
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766393820/cea3d78a-fae7-4717-b884-1732f3082662.png",
-            "https://res.cloudinary.com/df7s2xmz1/image/upload/v1766393746/3a02916d-831e-4ccd-9ccd-e607810671ae.png"
+            "https://bloodnexusstudio.in/otassets/71b176a7-2f8a-498b-b060-2d0fd3ed13d9.png",
+            "https://bloodnexusstudio.in/otassets/0c009dba-c4fc-48a5-8cd2-d5cf446c833b.png",
+            "https://bloodnexusstudio.in/otassets/cea3d78a-fae7-4717-b884-1732f3082662.png",
+            "https://bloodnexusstudio.in/otassets/3a02916d-831e-4ccd-9ccd-e607810671ae.png"
         ]
     };
 

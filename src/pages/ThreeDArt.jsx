@@ -85,7 +85,7 @@ const ThreeDArt = () => {
                         <div
                             className="hidden md:block absolute right-0 top-0 bottom-0 w-1/2 rounded-l-[40px] overflow-hidden bg-cover bg-center bg-no-repeat"
                             style={{
-                                backgroundImage: "url('https://res.cloudinary.com/df7s2xmz1/image/upload/v1770213471/ChatGPT_Image_Feb_4_2026_07_25_56_PM_bvzmwv.png')"
+                                backgroundImage: "url('https://bloodnexusstudio.in/otassets/ChatGPT_Image_Feb_4_2026_07_25_56_PM_bvzmwv.png')"
                             }}
                         />
 
@@ -102,7 +102,7 @@ const ThreeDArt = () => {
                                 {/* Since no clean asset was provided, I am using a placeholder colored block to represent the image area shown in the reference (Shoes/Bag). 
                         The user can replace this src with the actual asset later. */}
                                 <img
-                                    src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770223429/6a244693-8114-4990-a5d4-2721a2462563.png"
+                                    src="https://bloodnexusstudio.in/otassets/6a244693-8114-4990-a5d4-2721a2462563.png"
                                     alt="2D Art Creative"
                                     className="w-full h-full object-cover mix-blend-multiply opacity-80"
                                 />
@@ -183,7 +183,7 @@ const ThreeDArt = () => {
                                     <span className="font-bold">High-Fidelity Modeling</span> that captures every detail, from hard-surface mechanical parts to organic creature designs.
                                 </p>
                                 <img
-                                    src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770213467/ChatGPT_Image_Feb_4_2026_07_26_22_PM_qqxhaj.png"
+                                    src="https://bloodnexusstudio.in/otassets/ChatGPT_Image_Feb_4_2026_07_26_22_PM_qqxhaj.png"
                                     alt="3D Process 1"
                                     className="w-full aspect-square object-cover rounded-[40px] shadow-sm hover:scale-[1.02] transition-transform duration-500"
                                 />
@@ -195,7 +195,7 @@ const ThreeDArt = () => {
                                     <span className="font-bold">Rigging & Animation</span> that brings static meshes to life with fluid motion, realistic physics, and expressive character acting.
                                 </p>
                                 <img
-                                    src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770225118/SpiderOnOff_e5qxyl.gif"
+                                    src="https://bloodnexusstudio.in/otassets/SpiderOnOff_e5qxyl.gif"
                                     alt="3D Process 2"
                                     className="w-full aspect-square object-cover rounded-[40px] shadow-sm hover:scale-[1.02] transition-transform duration-500"
                                 />
@@ -207,7 +207,7 @@ const ThreeDArt = () => {
                                     <span className="font-bold">Engine-Ready Optimization</span> ensuring your assets look great without killing your frame rate. Topology matters.
                                 </p>
                                 <img
-                                    src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770213473/ChatGPT_Image_Feb_4_2026_07_26_34_PM_qmbgys.png"
+                                    src="https://bloodnexusstudio.in/otassets/ChatGPT_Image_Feb_4_2026_07_26_34_PM_qmbgys.png"
                                     alt="3D Process 3"
                                     className="w-full aspect-square object-cover rounded-[40px] shadow-sm hover:scale-[1.02] transition-transform duration-500"
                                 />
@@ -224,7 +224,7 @@ const ThreeDArt = () => {
                         {/* TOP IMAGE */}
                         <div className="w-full mb-12">
                             <img
-                                src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770223968/127ec944-4873-4ae2-9703-81d9f940ed5e.png"
+                                src="https://bloodnexusstudio.in/otassets/127ec944-4873-4ae2-9703-81d9f940ed5e.png"
                                 alt="Creative Direction Stools"
                                 className="w-full h-[400px] md:h-[500px] object-cover rounded-[50px] shadow-lg"
                             />
@@ -261,7 +261,7 @@ const ThreeDArt = () => {
                         {/* RIGHT IMAGE */}
                         <div className="flex justify-end">
                             <img
-                                src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1769017339/cf460a22-16c2-42d7-9637-47890f63b1c3.png"
+                                src="https://bloodnexusstudio.in/otassets/cf460a22-16c2-42d7-9637-47890f63b1c3.png"
                                 alt="Vision Character"
                                 className="w-full max-w-[520px] object-contain object-bottom" // Aligns to bottom
                             />
@@ -280,7 +280,7 @@ const ThreeDArt = () => {
                                 LETS <br /> START BUILDING
                             </h2>
                             <img
-                                src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770213475/ChatGPT_Image_Feb_4_2026_07_26_02_PM_o8am1w.png"
+                                src="https://bloodnexusstudio.in/otassets/ChatGPT_Image_Feb_4_2026_07_26_02_PM_o8am1w.png"
                                 alt="Lets Start Building"
                                 className="w-full max-w-[500px] object-contain rounded-[60px]"
                             />

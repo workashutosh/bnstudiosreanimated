@@ -22,7 +22,7 @@ const Navbar = () => {
                     <div className="flex-shrink-0 z-50">
                         <Link to="/">
                             <img
-                                src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1765530362/logo_x4jjuc.jpg"
+                                src="https://bloodnexusstudio.in/otassets/logo_x4jjuc.jpg"
                                 alt="BLOODNEXUS"
                                 className="h-10 w-auto object-contain"
                             />

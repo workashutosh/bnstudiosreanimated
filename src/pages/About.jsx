@@ -28,7 +28,7 @@ const About = () => {
             <section className="relative py-24 md:py-32 overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
                     <img
-                        src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1765535063/10_i2dwza.png"
+                        src="https://bloodnexusstudio.in/otassets/10_i2dwza.png"
                         alt=""
                         className="w-full h-full object-cover"
                     />

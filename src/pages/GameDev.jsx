@@ -23,20 +23,18 @@ const GameDev = () => {
     const statsRef = useRef(null);
 
     const capabilities = [
-        { title: 'PC Games', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770217512/be576e3c-a669-41bf-85f5-ce7913ce30e6.png', link: '/game-dev' },
-        { title: 'Mobile Games', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770215701/63e538fd-6afe-45f8-b9ed-632e7a05ce51.png', link: '/game-dev' },
-        { title: 'FPS Controllers', img: 'https://res.cloudinary.com/df7s2xmz1/video/upload/v1770210825/VID-20251208-WA0017_urbmdi.mp4', isVideo: true, link: '/game-dev' },
-        { title: 'Multiplayer Systems', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770214886/d393f5a6-3f49-42bb-9167-cbf11bc517b0.png', link: '/game-dev' },
-        { title: 'Game optimization', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770213469/ChatGPT_Image_Feb_4_2026_07_26_18_PM_sfqz7k.png', link: '/game-dev' },
-        { title: 'Level Design', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770212683/WhatsApp_Image_2025-11-11_at_13.38.11_f58e8469_nr6lwe.jpg', link: '/game-dev' },
-        { title: 'Prototyping', img: 'https://res.cloudinary.com/df7s2xmz1/video/upload/v1770213682/WhatsApp_Video_2025-09-06_at_17.18.16_23073242_y45v9p.mp4', isVideo: true, link: '/game-dev' },
-        { title: 'Enviroment Design', img: 'https://res.cloudinary.com/df7s2xmz1/video/upload/v1770213276/Environment_gycgp5.mp4',  isVideo: true, link: '/game-dev' },
-        { title: 'Character Design ', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770214925/Untitled_design_tzn16n.png', link: '/game-dev' },
-        { title: 'Creature Design', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770213888/cd42f285-2bc8-48af-a9bc-f299c490f9cd.png', link: '/game-dev' },
-        { title: 'Post-launch Support', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770215376/1bdbeff2-c419-403b-8f77-0c381b441602.png', link: '/contact' },
-        { title: 'VR Games', img: 'https://res.cloudinary.com/df7s2xmz1/image/upload/v1770215050/898c4f1c-17b0-4217-a13e-7c169ff469c5.png', link: '/game-dev' },
-
-    
+        { title: 'PC Games', img: 'https://bloodnexusstudio.in/otassets/be576e3c-a669-41bf-85f5-ce7913ce30e6.png', link: '/game-dev' },
+        { title: 'Mobile Games', img: 'https://bloodnexusstudio.in/otassets/63e538fd-6afe-45f8-b9ed-632e7a05ce51.png', link: '/game-dev' },
+        { title: 'FPS Controllers', img: 'https://bloodnexusstudio.in/otassets/VID-20251208-WA0017_urbmdi.mp4', isVideo: true, link: '/game-dev' },
+        { title: 'Multiplayer Systems', img: 'https://bloodnexusstudio.in/otassets/d393f5a6-3f49-42bb-9167-cbf11bc517b0.png', link: '/game-dev' },
+        { title: 'Game optimization', img: 'https://bloodnexusstudio.in/otassets/ChatGPT_Image_Feb_4_2026_07_26_18_PM_sfqz7k.png', link: '/game-dev' },
+        { title: 'Level Design', img: 'https://bloodnexusstudio.in/otassets/WhatsApp_Image_2025-11-11_at_13.38.11_f58e8469_nr6lwe.jpg', link: '/game-dev' },
+        { title: 'Prototyping', img: 'https://bloodnexusstudio.in/otassets/WhatsApp_Video_2025-09-06_at_17.18.16_23073242_y45v9p.mp4', isVideo: true, link: '/game-dev' },
+        { title: 'Enviroment Design', img: 'https://bloodnexusstudio.in/otassets/Environment_gycgp5.mp4',  isVideo: true, link: '/game-dev' },
+        { title: 'Character Design ', img: 'https://bloodnexusstudio.in/otassets/Untitled_design_tzn16n.png', link: '/game-dev' },
+        { title: 'Creature Design', img: 'https://bloodnexusstudio.in/otassets/cd42f285-2bc8-48af-a9bc-f299c490f9cd.png', link: '/game-dev' },
+        { title: 'Post-launch Support', img: 'https://bloodnexusstudio.in/otassets/1bdbeff2-c419-403b-8f77-0c381b441602.png', link: '/contact' },
+        { title: 'VR Games', img: 'https://bloodnexusstudio.in/otassets/898c4f1c-17b0-4217-a13e-7c169ff469c5.png', link: '/game-dev' },
     ];
 
     useEffect(() => {
@@ -217,7 +215,7 @@ const GameDev = () => {
                         muted
                         playsInline
                     >
-                        <source src="https://res.cloudinary.com/df7s2xmz1/video/upload/v1770215484/Main_Page_wjuxtw.mp4" type="video/mp4" />
+                        <source src="https://bloodnexusstudio.in/otassets/Main_Page_wjuxtw.mp4" type="video/mp4" />
                     </video>
                     {/* Cinematic Letterbox effect if desired, or just gradient */}
                     <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/80"></div>
@@ -388,7 +386,7 @@ const GameDev = () => {
                         {/* Image Side */}
                         <div className="relative min-h-[400px] border-r border-zinc-800">
                             <img
-                                src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1770213849/e78b9078-84ce-4956-8ae5-c1fa1d5506fa.png"
+                                src="https://bloodnexusstudio.in/otassets/e78b9078-84ce-4956-8ae5-c1fa1d5506fa.png"
                                 alt="Player Experience"
                                 className="w-full h-full object-cover opacity-80"
                             />
@@ -428,7 +426,7 @@ const GameDev = () => {
                     <SectionHeader title="Selected Works" />
 
                     <div className="relative overflow-hidden mb-12 h-[500px] group">
-                        <img src="https://res.cloudinary.com/df7s2xmz1/image/upload/v1765535069/Poster_9.1_ooxfev.png" className="w-full h-full object-cover object-top" alt="Featured Work" />
+                        <img src="https://bloodnexusstudio.in/otassets/Poster_9.1_ooxfev.png" className="w-full h-full object-cover object-top" alt="Featured Work" />
                         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black/80 to-transparent flex flex-col justify-center px-12 md:px-24">
                             <h3 className="text-6xl font-bebas text-white mb-4">Project: NEXUS</h3>
                             <p className="text-white/80 font-oswald text-xl max-w-md mb-8">
@@ -541,7 +539,7 @@ const GameDev = () => {
 
             {/* 6. MISSION CONTROL FORM (with Ready to Create background) */}
             <section className="relative py-16 sm:py-24 md:py-32 bg-zinc-900 text-center text-white overflow-hidden">
-                <div className="absolute inset-0 opacity-20 bg-[url('https://res.cloudinary.com/df7s2xmz1/image/upload/v1765535063/10_i2dwza.png')] bg-cover bg-center"></div>
+                <div className="absolute inset-0 opacity-20 bg-[url('https://bloodnexusstudio.in/otassets/10_i2dwza.png')] bg-cover bg-center"></div>
                 <div className="relative z-10 container mx-auto px-4 sm:px-6">
                     <div className="max-w-4xl mx-auto bg-black/80 backdrop-blur-md border-2 border-zinc-800/80 p-4 sm:p-6 md:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
                         {/* Corner accent */}
